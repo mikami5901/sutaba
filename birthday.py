@@ -8,10 +8,10 @@ seibetu = []
 yaruki = []
 
 # 削除用のラベルリスト
-namehyouji = []
-sukihyouji = []
-seibetuhyouji = []
-yarukihyouji = []
+namesakujyo = []
+sukisakujyo = []
+seibetusakujyo = []
+yarukisakujyo = []
 
 # データを登録し、下部に表示する関数
 def regist():
@@ -34,36 +34,36 @@ def regist():
     yaruki.append(ans4)
 
     # すでに表示されているラベルをクリアする
-    for label in namehyouji + sukihyouji + seibetuhyouji + yarukihyouji:
+    for label in namesakujyo + sukisakujyo + seibetusakujyo + yarukisakujyo:
     # destroy()は、tkinterウィジェット（ここではラベルオブジェクト）を画面上から削除
         label.destroy()
     # 配列自体の削除
-    namehyouji.clear()
-    sukihyouji.clear()
-    seibetuhyouji.clear()
-    yarukihyouji.clear()
+    namesakujyo.clear()
+    sukisakujyo.clear()
+    seibetusakujyo.clear()
+    yarukisakujyo.clear()
 
     # 登録済のデータを下部に表示する。配列の数に応じて表示数を増加
     for i in range(len(namae)):
         # 名前の表示
         name_label = tk.Label(root, text=namae[i])
         name_label.grid(row=i + 6, column=0, padx=5, pady=5)
-        namehyouji.append(name_label)
+        namesakujyo.append(name_label)
 
         # 好きな食べ物の表示
         eat_label = tk.Label(root, text=eat[i])
         eat_label.grid(row=i + 6, column=1, padx=5, pady=5)
-        sukihyouji.append(eat_label)
+        sukisakujyo.append(eat_label)
 
         # 性別の表示
         seibetu_label = tk.Label(root, text=seibetu[i])
         seibetu_label.grid(row=i + 6, column=2, padx=5, pady=5)
-        seibetuhyouji.append(seibetu_label)
+        seibetusakujyo.append(seibetu_label)
 
         # やる気の表示
         yaruki_label = tk.Label(root, text=yaruki[i])
         yaruki_label.grid(row=i + 6, column=3, padx=5, pady=5)
-        yarukihyouji.append(yaruki_label)
+        yarukisakujyo.append(yaruki_label)
 
 # メインウィンドウのセットアップ
 root = tk.Tk()
