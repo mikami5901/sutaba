@@ -18,17 +18,7 @@ def regist():
     # GUIの各入力値を変数に取得
     ans1 = entry1.get()
     ans2 = entry2.get()
-
-    # ラジオボタンの現在の値を「男」「女」「不明」に変換
-    option = selected_option.get()
-    if option == "1":
-        ans3 = "男"
-    elif option == "2":
-        ans3 = "女"
-    elif option == "3":
-        ans3 = "不明"
-    else:
-        ans3 = "不正な選択肢"
+    ans3 = selected_option.get()
 
     # チェックボックスの値を取得
     check = var.get()
@@ -89,11 +79,11 @@ entry2 = tk.Entry(root)
 
 # ラジオボタンの作成
 # tk.StringVar()はラジオボタンの選択値を格納する変数
-selected_option = tk.StringVar(value="1")
+selected_option = tk.StringVar(value="男")
 # variable=selected_optionで選択された値がselected_option変数に保存
-radiobutton1 = tk.Radiobutton(root, text="男", variable=selected_option, value="1")
-radiobutton2 = tk.Radiobutton(root, text="女", variable=selected_option, value="2")
-radiobutton3 = tk.Radiobutton(root, text="未回答", variable=selected_option, value="3")
+radiobutton1 = tk.Radiobutton(root, text="男", variable=selected_option, value="男")
+radiobutton2 = tk.Radiobutton(root, text="女", variable=selected_option, value="女")
+radiobutton3 = tk.Radiobutton(root, text="未回答", variable=selected_option, value="不明")
 
 # チェックボックスの作成
 # TrueまたはFalseを格納するための変数varを作成
