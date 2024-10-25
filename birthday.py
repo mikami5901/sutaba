@@ -7,7 +7,7 @@ eat = []
 seibetu = []
 yaruki = []
 
-# 表示用のラベルリスト
+# 削除用のラベルリスト
 namehyouji = []
 sukihyouji = []
 seibetuhyouji = []
