@@ -22,6 +22,7 @@ def regist():
 
     # チェックボックスの値を取得
     check = var.get()
+    # if文の真偽チェックで格納する値を変更
     if check:
         ans4 = "やる気あり"
     else:
@@ -43,7 +44,7 @@ def regist():
     seibetusakujyo.clear()
     yarukisakujyo.clear()
 
-    # 登録済のデータを下部に表示する。配列の数に応じて表示数を増加
+    # 登録済のデータを下部に表示する。配列の数に応じて表示数を増加。iは0からスタート
     for i in range(len(namae)):
         # 名前の表示
         name_label = tk.Label(root, text=namae[i])
