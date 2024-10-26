@@ -15,7 +15,7 @@ yarukisakujyo = []
 
 # データを登録し、下部に表示する関数
 def regist():
-    # GUIの各入力値を変数に取得
+    # GUIの各入力値を変数に取得。GUIと内部の橋渡しのコード
     ans1 = entry1.get()
     ans2 = entry2.get()
     ans3 = selected_option.get()
