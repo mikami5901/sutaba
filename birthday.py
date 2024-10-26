@@ -1,13 +1,13 @@
 import tkinter as tk
 
 # グローバル変数（配列）の宣言
-# 本当はハッシュとキーで管理したいが、今回はリストで管理
+# 保存用の配列　本当はハッシュとキーで管理したいが、今回は配列で管理
 namae = []
 eat = []
 seibetu = []
 yaruki = []
 
-# 削除用のラベルリスト
+# 削除用の配列
 namesakujyo = []
 sukisakujyo = []
 seibetusakujyo = []
@@ -32,17 +32,7 @@ def regist():
     namae.append(ans1)
     eat.append(ans2)
     seibetu.append(ans3)
-    yaruki.append(ans4)
-
-    # すでに表示されているラベルをクリアする
-    for label in namesakujyo + sukisakujyo + seibetusakujyo + yarukisakujyo:
-    # destroy()は、tkinterウィジェット（ここではラベルオブジェクト）を画面上から削除
-        label.destroy()
-    # 配列自体の削除
-    namesakujyo.clear()
-    sukisakujyo.clear()
-    seibetusakujyo.clear()
-    yarukisakujyo.clear()
+    yaruki.append(ans4)  
 
     # 登録済のデータを下部に表示する。配列の数に応じて表示数を増加。iは0からスタート
     for i in range(len(namae)):
@@ -65,6 +55,21 @@ def regist():
         yaruki_label = tk.Label(root, text=yaruki[i])
         yaruki_label.grid(row=i + 6, column=3, padx=5, pady=5)
         yarukisakujyo.append(yaruki_label)
+def delete():
+    # 配列を合体させて、一気に削除しようとする。
+    for label in namesakujyo + sukisakujyo + seibetusakujyo + yarukisakujyo:
+    # destroy()は、tkinterウィジェット（ここではラベルオブジェクト）を画面上から削除
+        label.destroy()
+    # 保存用配列の削除　for文が分かりにくいときは、上のコードもぶっちゃけ個別にdestroyでいい。
+    namae.clear()
+    eat.clear()
+    seibetu.clear()
+    yaruki.clear()
+    # 削除用配列自体の削除
+    namesakujyo.clear()
+    sukisakujyo.clear()
+    seibetusakujyo.clear()
+    yarukisakujyo.clear()
 
 # メインウィンドウのセットアップ
 root = tk.Tk()
@@ -93,6 +98,7 @@ checkbox = tk.Checkbutton(root, text='やる気', variable=var)
 
 # 登録ボタンを作成。登録ボタン押下でregist関数を実行
 btn1 = tk.Button(root, text="登録", command=regist)
+btn2 = tk.Button(root, text="データ削除", command=delete)
 
 # GUIに作った部品を配置(起動時にセッティング)
 label1.grid(row=0, column=0, padx=5, pady=5)
@@ -104,6 +110,7 @@ radiobutton2.grid(row=3, column=1, pady=5)
 radiobutton3.grid(row=3, column=2, pady=5)
 checkbox.grid(row=4, column=1, padx=5, pady=5)
 btn1.grid(row=5, column=1)
+btn2.grid(row=5, column=2)
 
 # メインループの開始
 root.mainloop()
